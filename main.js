@@ -12,14 +12,15 @@ function makeTableResizable(table) {
 function addColumnsResizers(table) {
     let row = table.getElementsByTagName('tr')[0];
     let cols = row ? row.children : undefined;
+
     if (!cols) {
         return;
     }
 
     for (let i = 0; i < cols.length; i++) {
         let div = createDiv('col', table.offsetHeight, table.offsetWidth);
-        cols[i].appendChild(div);
         cols[i].style.position = 'relative';
+        cols[i].appendChild(div);
         setColListeners(div);
     }
 }
@@ -39,17 +40,18 @@ function addRowsResizers(table) {
 
     for (let i = 0; i < firstColumns.length; i++) {
         let div = createDiv('row', table.offsetHeight, table.offsetWidth);
-        firstColumns[i].appendChild(div);
         firstColumns[i].style.position = 'relative';
+        firstColumns[i].appendChild(div);
         setRowListeners(div)
     }
 }
 
 function createDiv(type, tableHeight, tableWidth) {
     let div = document.createElement('div');
+
     div.style.position = 'absolute';
     div.style.cursor = 'col-resize';
-    div.style.userSelect = 'none';
+    div.style.zIndex = '100';
 
     if (type === 'col') {
         div.style.top = '0';
@@ -87,7 +89,7 @@ function setColListeners(div) {
     });
 
     document.addEventListener('mouseup', function () {
-        if(curCol) {
+        if (curCol) {
             let parentTable = curCol.closest('table');
             let rowResizers = parentTable.querySelectorAll('.rowSelector');
 
@@ -119,12 +121,12 @@ function setRowListeners(div) {
     });
 
     document.addEventListener('mouseup', function () {
-        if(curCol) {
+        if (curCol) {
             let parentTable = curCol.closest('table');
-            let rowResizers = parentTable.querySelectorAll('.columnSelector');
+            let colResizers = parentTable.querySelectorAll('.columnSelector');
 
-            for (let row of rowResizers) {
-                row.style.height = parentTable.offsetHeight + 'px';
+            for (let col of colResizers) {
+                col.style.height = parentTable.offsetHeight + 'px';
             }
         }
 
