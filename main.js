@@ -50,18 +50,19 @@ function createDiv(type, tableHeight, tableWidth) {
     div.style.position = 'absolute';
     div.style.cursor = 'col-resize';
     div.style.userSelect = 'none';
+    div.style.backgroundColor = 'red'
 
     if (type === 'col') {
-        div.style.top = 0;
-        div.style.right = 0;
+        div.style.top = '0';
+        div.style.right = '0';
         div.style.width = '5px';
         div.style.height = tableHeight + 'px';
         div.className = 'columnSelector';
     }
 
     if (type === 'row') {
-        div.style.bottom = 0;
-        div.style.left = 0;
+        div.style.bottom = '0';
+        div.style.left = '0';
         div.style.height = '5px';
         div.style.width = tableWidth + 'px';
         div.className = 'rowSelector';
@@ -86,7 +87,7 @@ function setColListeners(div) {
         }
     });
 
-    document.addEventListener('mouseup', function (e) {
+    document.addEventListener('mouseup', function () {
         curCol = undefined;
         pageX = undefined;
         curColWidth = undefined;
@@ -109,12 +110,9 @@ function setRowListeners(div) {
         }
     });
 
-    document.addEventListener('mouseup', function (e) {
+    document.addEventListener('mouseup', function () {
         curCol = undefined;
         pageY = undefined;
         curColHeight = undefined;
     });
 }
-
-
-
