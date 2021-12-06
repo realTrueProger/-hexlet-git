@@ -51,6 +51,7 @@ function createDiv(type, tableHeight, tableWidth) {
 
     div.style.position = 'absolute';
     div.style.cursor = 'col-resize';
+    div.style.userSelect = 'none';
     div.style.zIndex = '100';
 
     if (type === 'col') {
