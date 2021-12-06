@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            padding: 5px 15px;
+            text-align: left;
+        }
+
+        table, th, td {
+            border: 1px solid #000;
+        }
+
+        .columnSelector:hover {
+            border-right: 2px solid blue;
+        }
+
+        .rowSelector:hover {
+            border-bottom: 2px solid blue;
+        }
+    </style>
+</head>
+<body>
+<table id="tableId">
+    <thead>
+    <tr>
+        <th>header1</th>
+        <th>header2</th>
+        <th>header3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>col1</td>
+        <td>col2</td>
+        <td>col3</td>
+    </tr>
+    </tbody>
+</table>
+<br>
+<table id="tableId2">
+    <thead>
+    <tr>
+        <th>header1</th>
+        <th>header2</th>
+        <th>header3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>col1</td>
+        <td>col2</td>
+        <td>col3</td>
+    </tr>
+    </tbody>
+</table>
+<script src="main.js"></script>
+</body>
+</html>
