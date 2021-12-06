@@ -1,10 +1,10 @@
 let tables = document.getElementsByTagName('table')
 
 for (let table of tables) {
-    resizableGrid(table)
+    makeTableResizable(table)
 }
 
-function resizableGrid(table) {
+function makeTableResizable(table) {
     addColumnsResizers(table);
     addRowsResizers(table);
 }
@@ -90,6 +90,7 @@ function setColListeners(div) {
         if(curCol) {
             let parentTable = curCol.closest('table');
             let rowResizers = parentTable.querySelectorAll('.rowSelector');
+
             for (let row of rowResizers) {
                 row.style.width = parentTable.offsetWidth + 'px';
             }
@@ -121,6 +122,7 @@ function setRowListeners(div) {
         if(curCol) {
             let parentTable = curCol.closest('table');
             let rowResizers = parentTable.querySelectorAll('.columnSelector');
+
             for (let row of rowResizers) {
                 row.style.height = parentTable.offsetHeight + 'px';
             }
