@@ -50,7 +50,6 @@ function createDiv(type, tableHeight, tableWidth) {
     div.style.position = 'absolute';
     div.style.cursor = 'col-resize';
     div.style.userSelect = 'none';
-    div.style.backgroundColor = 'red'
 
     if (type === 'col') {
         div.style.top = '0';
@@ -88,6 +87,14 @@ function setColListeners(div) {
     });
 
     document.addEventListener('mouseup', function () {
+        if(curCol) {
+            let parentTable = curCol.closest('table');
+            let rowResizers = parentTable.querySelectorAll('.rowSelector');
+            for (let row of rowResizers) {
+                row.style.width = parentTable.offsetWidth + 'px';
+            }
+        }
+
         curCol = undefined;
         pageX = undefined;
         curColWidth = undefined;
@@ -111,6 +118,14 @@ function setRowListeners(div) {
     });
 
     document.addEventListener('mouseup', function () {
+        if(curCol) {
+            let parentTable = curCol.closest('table');
+            let rowResizers = parentTable.querySelectorAll('.columnSelector');
+            for (let row of rowResizers) {
+                row.style.height = parentTable.offsetHeight + 'px';
+            }
+        }
+
         curCol = undefined;
         pageY = undefined;
         curColHeight = undefined;
