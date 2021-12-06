@@ -94,33 +94,24 @@ function setColListeners(div) {
 }
 
 function setRowListeners(div) {
-    let pageY, curCol, nxtCol, curColHeight, nxtColHeight;
+    let pageY, curCol, curColHeight;
 
     div.addEventListener('mousedown', function (e) {
         curCol = e.target.parentElement;
-        nxtCol = curCol.nextElementSibling;
         pageY = e.pageY;
         curColHeight = curCol.offsetHeight
-        if (nxtCol)
-            nxtColHeight = nxtCol.offsetHeight
     });
 
     document.addEventListener('mousemove', function (e) {
         if (curCol) {
             let diffX = e.pageY - pageY;
-
-            if (nxtCol)
-                nxtCol.style.height = (nxtColHeight - (diffX)) + 'px';
-
             curCol.style.height = (curColHeight + diffX) + 'px';
         }
     });
 
     document.addEventListener('mouseup', function (e) {
         curCol = undefined;
-        nxtCol = undefined;
         pageY = undefined;
-        nxtColHeight = undefined;
         curColHeight = undefined;
     });
 }
