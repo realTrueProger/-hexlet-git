@@ -116,8 +116,8 @@ function setRowListeners(div) {
 
     document.addEventListener('mousemove', function (e) {
         if (curCol) {
-            let diffX = e.pageY - pageY;
-            curCol.style.height = (curColHeight + diffX) + 'px';
+            let diffY = e.pageY - pageY;
+            curCol.style.height = (curColHeight + diffY) + 'px';
         }
     });
 
